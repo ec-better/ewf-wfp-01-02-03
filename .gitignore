@@ -9,3 +9,4 @@ runc
 *.tif
 *.png
 application.xml
+*.log
