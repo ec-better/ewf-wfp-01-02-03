@@ -2,16 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>eu.ec-better</groupId>
-  <artifactId>wfp-01-02-03</artifactId>
+  <artifactId>ewf-wfp-01-02-03</artifactId>
   <packaging>pom</packaging>
-  <name>wfp-01-02-03</name>
+  <name>ewf-wfp-01-02-03</name>
   <parent>
     <groupId>com.terradue</groupId>
     <artifactId>dcs-python-parent</artifactId>
     <version>2.0.0</version>
   </parent>
   <description>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</description>
-  <version>0.1</version>
+  <version>0.2</version>
   <properties>
     <summary>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</summary>
     <description>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</description>
@@ -19,8 +19,8 @@
     <yumRepo>ec-better</yumRepo>
   </properties>
   <scm>
-    <connection>scm:git:ssh://git@github.com/ec-better/wfp-01-02-03</connection>
-    <developerConnection>scm:git:ssh://git@github.com/ec-better/wfp-01-02-03</developerConnection>
+    <connection>scm:git:ssh://git@github.com/ec-better/ewf-wfp-01-02-03</connection>
+    <developerConnection>scm:git:ssh://git@github.com/ec-better/ewf-wfp-01-02-03</developerConnection>
     <url>https://github.com/ec-better/wfp-01-02-03</url>
     <tag>HEAD</tag>
   </scm>
