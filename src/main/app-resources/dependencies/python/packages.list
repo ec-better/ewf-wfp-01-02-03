@@ -16,6 +16,7 @@ backports_abc=0.5=py27h7b3c97b_0
 basemap=1.0.7=np113py27_0
 bcrypt=3.1.4=py27h8473b39_0
 beautifulsoup4=4.6.0=py27h3f86ba9_1
+blas=1.0=mkl
 bleach=2.0.0=py27_0
 bokeh=0.12.10=py27he46cc6b_0
 bzip2=1.0.6=3
