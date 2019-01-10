@@ -42,7 +42,6 @@ dbus=1.10.10=0
 decorator=4.0.11=py27_0
 descartes=1.1.0=py27h5233db4_0
 docutils=0.14=py27hae222c1_0
-ellip_triggers=0.0.11=py27h93fe300_0
 entrypoints=0.2.2=py27_0
 enum34=1.1.6=py27_0
 expat=2.1.0=0
