@@ -11,7 +11,7 @@
     <version>3.0.1-docker</version>
   </parent>
   <description>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</description>
-  <version>0.5</version>
+  <version>0.6</version>
   <properties>
     <summary>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</summary>
     <description>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</description>
