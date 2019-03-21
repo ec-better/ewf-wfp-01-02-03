@@ -11,7 +11,7 @@
     <version>2.0.0</version>
   </parent>
   <description>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</description>
-  <version>0.6</version>
+  <version>0.7</version>
   <properties>
     <summary>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</summary>
     <description>WFP-01-02-03 Sentinel-1 Sigma-0 backscatter all polarization</description>
