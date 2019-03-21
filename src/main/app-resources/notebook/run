@@ -146,8 +146,8 @@ def stage_in(reference):
     identifiers.append(search[0]['identifier'])
     enclosures.append(search[0]['enclosure'])
     local_files.append(retrieved)    
-  
 
+    
 def execute(identifier, reference, nb_source, nb_target, kernel = 'python2'):
     
     global nb
@@ -162,22 +162,22 @@ def execute(identifier, reference, nb_source, nb_target, kernel = 'python2'):
     ep = ExecutePreprocessor(timeout=50000, kernel_name=kernel)
 
     try:
-      out = ep.preprocess(nb, {'metadata': {'path': './'}})
-    except CellExecutionError:
-      out = None
-      ciop.log('ERROR', 'Error executing the notebook "%s".' % nb_source)
+        out = ep.preprocess(nb, {'metadata': {'path': './'}})
+    except CellExecutionError as e:
+        out = None
+        ciop.log('ERROR', 'Error executing the notebook "%s : %s".' % (nb_source,str(e)))
 
-      with io.open(nb_target, 'wb') as file:
-        file.write(nbf.writes(nb))
-        file.close()
+        with io.open(nb_target, 'wb') as file:
+            file.write(nbf.writes(nb))
+            file.close()
       
-      ciop.publish(nb_target, metalink=True)
-      raise
+        ciop.publish(nb_target, metalink=True)
+        raise
     finally:
-      ciop.log('INFO', 'Write notebook')  
-      with io.open(nb_target, 'wb') as file:
-        file.write(nbf.writes(nb))
-        file.close() 
+        ciop.log('INFO', 'Write notebook')  
+        with io.open(nb_target, 'wb') as file:
+            file.write(nbf.writes(nb))
+            file.close() 
 
 def publish(runtime):
    
@@ -203,40 +203,40 @@ def main():
 
     # Loops over all the inputs
     for reference in sys.stdin:
-      references.append(reference.rstrip())
+        references.append(reference.rstrip())
     
     for reference in references:
                
-      stage_in(reference)
+        stage_in(reference)
       
-      runtime = os.path.join(ciop.tmp_dir, str(uuid.uuid4()))    
+        runtime = os.path.join(ciop.tmp_dir, str(uuid.uuid4()))    
 
-      os.makedirs(runtime)
-      os.chdir(runtime)
-   
-      # create the reproducibility notebook for data stage-in
-      reproducibility(runtime, reference)
+        os.makedirs(runtime)
+        os.chdir(runtime)
+
+        # create the reproducibility notebook for data stage-in
+        reproducibility(runtime, reference)
     
-      # execute the notebook
-      nb_source = os.path.join('/application', 'notebook', 'libexec', 'input.ipynb')
-      nb_target = os.path.join(runtime, 'result.ipynb')  
-      execute(identifiers[-1], reference, nb_source, nb_target, 'python2')  
+        # execute the notebook
+        nb_source = os.path.join('/application', 'notebook', 'libexec', 'input.ipynb')
+        nb_target = os.path.join(runtime, 'result.ipynb')  
+        execute(identifiers[-1], reference, nb_source, nb_target, 'python2')  
     
-      # publish
-      publish(runtime)   
+        # publish
+        publish(runtime)   
    
-      # clean-up 
-      clean_up(runtime)
+        # clean-up 
+        clean_up(runtime)
 
     # clean-up workspace folder
     shutil.rmtree(os.path.split(tmp_dir)[0])
 try:
-  main()
+    main()
 except SystemExit as e:
-  if e.args[0]:
-    clean_exit(e.args[0])
-  raise
+    if e.args[0]:
+        clean_exit(e.args[0])
+    raise
 else:
-  atexit.register(clean_exit, 0)
+    atexit.register(clean_exit, 0)
 
 
